@@ -8,9 +8,6 @@ sudo cp -a files/stem_club "${ROOTFS_DIR}/home/pi/stem_club/"
 install -m 644 "${ROOTFS_DIR}/home/pi/stem_club/services/interface.service" "${ROOTFS_DIR}/lib/systemd/system/"
 install -m 644 "${ROOTFS_DIR}/home/pi/stem_club/services/prediction.service" "${ROOTFS_DIR}/lib/systemd/system/"
 install -m 644 "${ROOTFS_DIR}/home/pi/stem_club/services/sensors.service" "${ROOTFS_DIR}/lib/systemd/system/"
-# Install wheel for legacy picamera package
-install -m 777 files/*.whl "${ROOTFS_DIR}/home/pi"
-install -m 777 files/install-picamera "${ROOTFS_DIR}/etc/init.d/"
 # Copy preconfigured NetworkManager access point config to directory
 install -m 600 files/*.nmconnection "${ROOTFS_DIR}/etc/NetworkManager/system-connections/"
 # Load the first-boot service to randomise the SSID

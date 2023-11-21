@@ -16,7 +16,7 @@ install -m 600 files/*.nmconnection "${ROOTFS_DIR}/etc/NetworkManager/system-con
 # Load the service to rename the SSID on boot
 install -m 777 files/rename-on-boot "${ROOTFS_DIR}/etc/init.d/"
 # Install a basic script that echoes the pi's serial number to the console, for use when accessing rsync server
-install -m 777 files/serial-number "${ROOTFS_DIR}/usr/bin"
+install -m 777 files/serial-number "${ROOTFS_DIR}/usr/bin/"
 # Custom MOTD when logging in. Will provide IP address, shui status, system uptime, journalctl command
 install -m 777 files/motd "${ROOTFS_DIR}/home/pi/"
 # Using the code from raspi-config to enable NetworkManager, also sense hat, first-boot program, custom MOTD

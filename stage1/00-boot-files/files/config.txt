@@ -43,7 +43,6 @@ arm_boost=1
 otg_mode=1
 
 [pi4]
-dtoverlay=vc4-fkms-v3d
 # Run as fast as firmware / board allows
 arm_boost=1
 

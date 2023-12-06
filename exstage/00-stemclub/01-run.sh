@@ -8,7 +8,12 @@ EOF
 
 on_chroot << EOF
 cd /home/pi
-git clone https://github.com/altmattr/stem_club.git
+if [ -e /home/pi/stem_club ]; then
+    rm -rf stem_club
+    git clone https://github.com/altmattr/stem_club.git
+else
+    git clone https://github.com/altmattr/stem_club.git
+fi
 install -m 644 "/home/pi/stem_club/services/interface.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/prediction.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/sensors.service" "/lib/systemd/system/"

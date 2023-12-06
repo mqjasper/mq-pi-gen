@@ -1,8 +1,7 @@
 # Modified Usage
 
-To build a Pi OS lite-based image, run ```./lite-builder ``` as sudo from the top directory of the repository. Currently configured to be run on Linux based systems, not through docker although that will be sorted out. If for some reason you want to rebuild from scratch, ```./lite-clean.sh ```
-will do a clean run and rebuild the working library. 
-
+To build a Pi OS lite-based image, run ```sudo ./lite-builder.sh ``` from ```mq-pi-gen/```. Currently configured to be run on Linux based systems, haven't tested docker compatibility. If you encounter errors when running another build, ```sudo ./lite-clean.sh ```
+is your friend as it will clear out previous build files and start from scratch. If you want to rebuild only the extra stage either using previous build content or from scratch, ```sudo ./new-exstage-clean.sh``` and ```sudo ./new-exstage-build.sh``` are the way to go.
 
 # pi-gen
 
@@ -61,6 +60,11 @@ The following environment variables are supported:
    but you should use something else for a customized version.  Export files
    in stages may add suffixes to `IMG_NAME`.
 
+ * `PI_GEN_RELEASE` (Default: `Raspberry Pi reference`)
+
+   The release name to use in `/etc/issue.txt`. The default should only be used
+   for official Raspberry Pi builds.
+
 * `USE_QCOW2` **EXPERIMENTAL** (Default: `0` )
 
     Instead of using traditional way of building the rootfs of every stage in
@@ -84,7 +88,7 @@ The following environment variables are supported:
     that the network block device is not disconnected correctly after the Docker process has
     ended abnormally. In that case see [Disconnect an image if something went wrong](#Disconnect-an-image-if-something-went-wrong)
 
-* `RELEASE` (Default: bullseye)
+* `RELEASE` (Default: bookworm)
 
    The release version to build images against. Valid values are any supported
    Debian release. However, since different releases will have different sets of
@@ -201,9 +205,9 @@ The following environment variables are supported:
    stays activated. `FIRST_USER_PASS` must be set for this to work. Please be aware of the implied
    security risk of defining a default username and password for your devices.
 
- * `WPA_ESSID`, `WPA_PASSWORD` and `WPA_COUNTRY` (Default: unset)
+ * `WPA_COUNTRY` (Default: unset)
 
-   If these are set, they are use to configure `wpa_supplicant.conf`, so that the Raspberry Pi can automatically connect to a wireless network on first boot. If `WPA_ESSID` is set and `WPA_PASSWORD` is unset an unprotected wireless network will be configured. If set, `WPA_PASSWORD` must be between 8 and 63 characters. `WPA_COUNTRY` is a 2-letter ISO/IEC 3166 country Code, i.e. `GB`
+   Sets the default WLAN regulatory domain and unblocks WLAN interfaces. This should be a 2-letter ISO/IEC 3166 country Code, i.e. `GB`
 
  * `ENABLE_SSH` (Default: `0`)
 

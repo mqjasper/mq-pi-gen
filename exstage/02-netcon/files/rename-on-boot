@@ -1,0 +1,21 @@
+#!/bin/sh
+#/etc/init.d/rename-on-boot
+### BEGIN INIT INFO
+# Provides:          rename-on-boot
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Default-Start: 1 2 3 4 5
+# Default-Stop: 
+# Short-Description: Change AP SSID on boot
+# Description: Takes SSID from config.txt and changes AP name. This may be a rather blunt solution but if it works it works. Also should copy any .nmconnection files from the /boot folder
+### END INIT INFO
+
+SSID=$(grep -oP "ssid=\K.*" /boot/config.txt)
+
+sed -i "s,$(grep -oP "ssid=\K.*" /etc/NetworkManager/system-connections/WiFiAP.nmconnection),$SSID," /etc/NetworkManager/system-connections/WiFiAP.nmconnection
+
+if ls /boot/*.nmconnection 1> /dev/null 2>&1; then
+    sudo rsync --remove-source-files --chmod=F600 /boot/*.nmconnection /etc/NetworkManager/system-connections/
+else
+    echo "No .nmconnection files to move"
+fi

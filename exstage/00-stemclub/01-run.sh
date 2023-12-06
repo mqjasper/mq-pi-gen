@@ -9,7 +9,6 @@ EOF
 on_chroot << EOF
 cd /home/pi
 git clone https://github.com/altmattr/stem_club.git
-cd stem_club && git checkout picamera2_conversion
 install -m 644 "/home/pi/stem_club/services/interface.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/prediction.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/sensors.service" "/lib/systemd/system/"

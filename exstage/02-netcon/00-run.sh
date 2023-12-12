@@ -12,4 +12,5 @@ on_chroot << EOF
 update-rc.d rename-on-boot defaults
 cat /home/pi/motd | tee --append /home/pi/.bashrc > /dev/null
 rm /home/pi/motd
+wpa_cli wps_ap_pin disable
 EOF

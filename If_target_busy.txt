@@ -1,0 +1,2 @@
+sudo lsof "where umount won't work" will give you the process you need to kill
+sudo kill -9 PID 

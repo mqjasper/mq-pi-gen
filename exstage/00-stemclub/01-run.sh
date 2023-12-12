@@ -10,7 +10,7 @@ on_chroot << EOF
 cd /home/pi
 if [ -e /home/pi/stem_club ]; then
     rm -rf stem_club
-    git clone https://github.com/altmattr/stem_club.git
+    git clone https://github.com/altmattr/stem_club.git_
 else
     git clone https://github.com/altmattr/stem_club.git
 fi

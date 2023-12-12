@@ -17,7 +17,7 @@ ssid=stem_club
 group=ccmp;
 key-mgmt=wpa-psk
 pairwise=ccmp;
-psk=piisgood
+psk=stemclub
 wps-method=1
 
 [ipv4]

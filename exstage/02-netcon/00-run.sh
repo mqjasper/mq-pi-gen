@@ -10,8 +10,13 @@ install -m 600 files/*.nmconnection "${ROOTFS_DIR}/etc/NetworkManager/system-con
 
 on_chroot << EOF
 update-rc.d rename-on-boot defaults
-cat /home/pi/motd | tee --append /home/pi/.bashrc > /dev/null
-rm /home/pi/motd
+if grep -Fxq "/home/pi/motd" /home/pi/.bashrc
+then 
+        echo "MOTD already updated"
+else
+        cat /home/pi/motd | tee --append /home/pi/.bashrc > /dev/null
+        rm /home/pi/motd
+fi
 echo -e "wpa_cli wps_ap_pin disable" | tee -a /home/pi/.bashrc
 echo -e "sed -i '/wpa_cli/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
 EOF

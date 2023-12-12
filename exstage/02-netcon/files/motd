@@ -19,4 +19,4 @@ $(uname -srmo)
 
 To view output from the sense hat program, run the command journalctl -b -f -u interface.service
 
-"
+" \n

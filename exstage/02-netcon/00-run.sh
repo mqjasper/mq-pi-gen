@@ -17,6 +17,11 @@ else
         cat /home/pi/motd | tee --append /home/pi/.bashrc > /dev/null
         rm /home/pi/motd
 fi
-echo -e "wpa_cli wps_ap_pin disable" | tee -a /home/pi/.bashrc
-echo -e "sed -i '/wpa_cli/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
+if grep -Fxq "wpa_cli" /home/pi/.bashrc
+then
+        echo "PIN fix already exists"
+else
+        echo -e "wpa_cli wps_ap_pin disable" | tee -a /home/pi/.bashrc
+        echo -e "sed -i '/wpa_cli/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
+fi
 EOF

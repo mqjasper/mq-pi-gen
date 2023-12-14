@@ -21,7 +21,7 @@ if grep -Fxq "wpa_cli" /home/pi/.bashrc
 then
         echo "PIN fix already exists"
 else
-        echo -e "wpa_cli wps_ap_pin disable" | tee -a /home/pi/.bashrc
+        echo -e "wpa_cli wps_ap_pin disable > /dev/null 2>&1" | tee -a /home/pi/.bashrc
         echo -e "sed -i '/wpa_cli/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
 fi
 EOF

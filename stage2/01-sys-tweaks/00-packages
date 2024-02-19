@@ -13,7 +13,6 @@ lua5.1
 luajit
 ca-certificates curl
 fake-hwclock nfs-common usbutils
-libraspberrypi-dev libraspberrypi-doc libfreetype6-dev
 dosfstools
 dphys-swapfile
 raspberrypi-sys-mods
@@ -42,3 +41,4 @@ sense-hat
 git
 python3-pip
 python3-numpy
+python3-venv

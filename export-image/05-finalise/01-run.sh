@@ -6,7 +6,7 @@ INFO_FILE="${STAGE_WORK_DIR}/${IMG_FILENAME}${IMG_SUFFIX}.info"
 sed -i 's/^update_initramfs=.*/update_initramfs=all/' "${ROOTFS_DIR}/etc/initramfs-tools/update-initramfs.conf"
 
 on_chroot << EOF
-update-initramfs -u
+update-initramfs -k all -c
 if [ -x /etc/init.d/fake-hwclock ]; then
 	/etc/init.d/fake-hwclock stop
 fi
@@ -57,6 +57,10 @@ rm -f "${ROOTFS_DIR}/etc/vnc/updateid"
 
 update_issue "$(basename "${EXPORT_DIR}")"
 install -m 644 "${ROOTFS_DIR}/etc/rpi-issue" "${ROOTFS_DIR}/boot/firmware/issue.txt"
+if ! [ -L "${ROOTFS_DIR}/boot/issue.txt" ]; then
+	ln -s firmware/issue.txt "${ROOTFS_DIR}/boot/issue.txt"
+fi
+
 
 cp "$ROOTFS_DIR/etc/rpi-issue" "$INFO_FILE"
 

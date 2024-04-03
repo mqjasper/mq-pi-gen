@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "WSL Clean Build",
+        "preLaunchTask": "clean build"
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "WSL Standard Build",
+        "preLaunchTask": "standard build"
+      }
+    ]
+  }

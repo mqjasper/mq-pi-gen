@@ -10,7 +10,7 @@
 # Description: Takes SSID from config.txt and changes AP name. This may be a rather blunt solution but if it works it works. Also should copy any .nmconnection files from the /boot folder
 ### END INIT INFO
 
-SSID=$(grep -oP "ssid=\K.*" /boot/config.txt)
+SSID=$(grep -oP "ssid=\K.*" /boot/firmware/config.txt)
 
 sed -i "s,$(grep -oP "ssid=\K.*" /etc/NetworkManager/system-connections/WiFiAP.nmconnection),$SSID," /etc/NetworkManager/system-connections/WiFiAP.nmconnection
 

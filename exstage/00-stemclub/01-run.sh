@@ -4,7 +4,7 @@ python3 -m pip download --no-deps -d /home/pi tflite-runtime
 echo -e "python -m pip install /home/pi/*.whl --break-system-packages" | tee -a /home/pi/.bashrc
 echo -e "rm -f /home/pi/*.whl" | tee -a /home/pi/.bashrc
 echo -e "sed -i '/whl/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
-echo -e "mkdir /mnt/transfer" | tee -a /home/pi/.bashrc
+echo -e "sudo mkdir /mnt/transfer" | tee -a /home/pi/.bashrc
 echo -e "sed -i '/mkdir \/mnt/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
 echo -e "export LIBCAMERA_LOG_LEVELS=*:4" | tee -a /home/pi/.bashrc
 EOF

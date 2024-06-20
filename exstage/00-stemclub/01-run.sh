@@ -1,12 +1,22 @@
 #!/bin/bash
 on_chroot << EOF
-python3 -m pip download --no-deps -d /home/pi tflite-runtime
-echo -e "python -m pip install /home/pi/*.whl --break-system-packages" | tee -a /home/pi/.bashrc
-echo -e "rm -f /home/pi/*.whl" | tee -a /home/pi/.bashrc
-echo -e "sed -i '/whl/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
-echo -e "sudo mkdir /mnt/transfer" | tee -a /home/pi/.bashrc
-echo -e "sed -i '/mkdir \/mnt/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
-echo -e "export LIBCAMERA_LOG_LEVELS=*:4" | tee -a /home/pi/.bashrc
+if grep -Fxq "/home/pi/*.whl" /home/pi/.bashrc
+then 
+        echo "tflite already loaded into image"
+else
+        python3 -m pip download --no-deps -d /home/pi tflite-runtime
+        echo -e "python -m pip install /home/pi/*.whl --break-system-packages" | tee -a /home/pi/.bashrc
+        echo -e "rm -f /home/pi/*.whl" | tee -a /home/pi/.bashrc
+        echo -e "sed -i '/whl/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
+fi
+if grep -Fxq "LIBCAMERA_LOG_LEVELS=*:4" /home/pi/.bashrc
+then
+        echo "Bash profile already updated for transfer directory and libcamera log level"
+else
+        echo -e "sudo mkdir /mnt/transfer" | tee -a /home/pi/.bashrc
+        echo -e "sed -i '/mkdir \/mnt/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
+        echo -e "export LIBCAMERA_LOG_LEVELS=*:4" | tee -a /home/pi/.bashrc
+fi
 EOF
 
 on_chroot << EOF

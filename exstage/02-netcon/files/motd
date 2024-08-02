@@ -18,5 +18,8 @@ $(uname -srmo)
 - Serial Number......: $SN
 
 To view output from the sense hat program, run the command journalctl -b -f -u interface.service
-
+To enable Raspberry Pi Connect, use the command rpi-connect signin and follow the instructions displayed.
+You must make sure you have permission from a parent or guardian before creating an account! 
+If you have created an account and completed signin, you can access the pi remotely from connect.raspberrypi.com using a web browser on your device. 
+You will only be able to connect via remote shell.
 " \n

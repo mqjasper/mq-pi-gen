@@ -17,6 +17,14 @@ else
         echo -e "sed -i '/mkdir \/mnt/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
         echo -e "export LIBCAMERA_LOG_LEVELS=*:4" | tee -a /home/pi/.bashrc
 fi
+if grep -Fxq "loginctl enable-linger" /home/pi/.bashrc
+then
+        echo "Bash profile already updated for user-lingering"
+else
+        echo -e "loginctl enable-linger" | tee -a /home/pi/.bashrc
+        echo -e "sed -i '/loginctl enable-linger/d' /home/pi/.bashrc" | tee -a /home/pi/.bashrc
+fi
+
 EOF
 
 on_chroot << EOF

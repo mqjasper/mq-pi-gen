@@ -4,14 +4,20 @@
       {
         "type": "chrome",
         "request": "launch",
-        "name": "WSL Clean Build",
+        "name": "Clean Build",
         "preLaunchTask": "clean build"
       },
       {
         "type": "chrome",
         "request": "launch",
-        "name": "WSL Standard Build",
+        "name": "Standard Build",
         "preLaunchTask": "standard build"
+      }
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Build & Upload",
+        "preLaunchTask": "standard_and_upload"
       }
     ]
   }

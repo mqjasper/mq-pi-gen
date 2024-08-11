@@ -116,3 +116,5 @@ none | *)
 esac
 
 cp "$INFO_FILE" "$DEPLOY_DIR/"
+
+export FILENAME="${DEPLOY_DIR}/${ARCHIVE_FILENAME}${IMG_SUFFIX}.img.xz"

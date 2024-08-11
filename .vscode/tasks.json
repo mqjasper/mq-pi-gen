@@ -13,7 +13,7 @@
             "label": "standard build",
             "command": "sudo ./new-lite-builder.sh",
             "type": "shell"
-        }
+        },
         {
             "label": "standard_and_upload",
             "command": "sudo ./new-lite-build-and-upload.sh"

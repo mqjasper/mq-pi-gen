@@ -12,7 +12,7 @@
         "request": "launch",
         "name": "Standard Build",
         "preLaunchTask": "standard build"
-      }
+      },
       {
         "type": "chrome",
         "request": "launch",

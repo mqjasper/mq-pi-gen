@@ -74,6 +74,6 @@ index_b=$(($RANDOM % $size_b))
 APNAME="WiFiAP"
 SSID="${a[$index_a]} ${b[$index_b]}"
 
-sed -i "s,$(grep -oP "ssid=\K.*" /boot/config.txt),$SSID," /boot/config.txt
+sed -i "s,$(grep -oP "ssid=\K.*" /boot/firmware/config.txt),$SSID," /boot/firmware/config.txt
 
 echo "The new SSID is $SSID"

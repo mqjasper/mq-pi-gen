@@ -5,7 +5,7 @@
         "type": "chrome",
         "request": "launch",
         "name": "Clean Build",
-        "preLaunchTask": "clean build"
+        "preLaunchTask": "full clean build"
       },
       {
         "type": "chrome",
@@ -18,6 +18,18 @@
         "request": "launch",
         "name": "Build & Upload",
         "preLaunchTask": "standard_and_upload"
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "exstage build",
+        "preLaunchTask": "exstage build"
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "exstage clean",
+        "preLaunchTask": "exstage clean"
       }
     ]
   }

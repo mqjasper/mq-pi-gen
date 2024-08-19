@@ -1,7 +1,6 @@
 # Modified Usage
 
-To build a Pi OS lite-based image, run ```sudo ./lite-builder.sh ``` from ```mq-pi-gen/```. Currently configured to be run on Linux based systems, haven't tested docker compatibility. If you encounter errors when running another build, ```sudo ./lite-clean.sh ```
-is your friend as it will clear out previous build files and start from scratch. If you want to rebuild only the extra stage either using previous build content or from scratch, ```sudo ./new-exstage-clean.sh``` and ```sudo ./new-exstage-build.sh``` are the way to go.
+For the first build after cloning (or if you delete the work folder), you must run the following ```sudo ./lite-builder.sh ``` from ```mq-pi-gen/``` in order to avoid crashing. If you encounter errors when running subsequent builds, or simply want a clean build, use ```sudo ./clean-build.sh ```. If you want to rebuild only the custom stage either using previous build content or from scratch, ```sudo ./exstage-clean.sh``` to clean only the exstage, and ```sudo ./exstage-build.sh``` if you don't want to rebuild the whole stage. Make sure that you look below for a list of dependencies to install before you can build an image. If you're using VS code, the various scripts to build an image can be initiated from the run and debug tag.
 
 # pi-gen
 

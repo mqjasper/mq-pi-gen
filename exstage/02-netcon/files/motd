@@ -1,22 +1,7 @@
-let upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
-let secs=$((${upSeconds}%60))
-let mins=$((${upSeconds}/60%60))
-let hours=$((${upSeconds}/3600%24))
-let days=$((${upSeconds}/86400))
-SN=$(cat /sys/firmware/devicetree/base/serial-number)
-UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
-GRN=$
-clear
+printf "\n"
+fastfetch
+printf "\n"
 printf "\e[32m
-$(date +"%A, %e %B %Y, %r")
-$(uname -srmo)
-
-\e[0m- Uptime.............: $UPTIME
-- IP Address.........: $(hostname -I | awk '{print $1}')
-- Interface status...: $(systemctl list-units | grep -oP "interface.service\K.*" | sed -e 's/^[ \t]*//' | awk '{print $1 ", " $2}')
-- SSID...............: $(sudo grep -oP "ssid=\K.*" /etc/NetworkManager/system-connections/WiFiAP.nmconnection)
-- Serial Number......: $SN
-
 To view output from the sense hat program, run the command journalctl -b -f -u interface.service
 To enable Raspberry Pi Connect, use the command rpi-connect signin and follow the instructions displayed.
 You must make sure you have permission from a parent or guardian before creating an account! 

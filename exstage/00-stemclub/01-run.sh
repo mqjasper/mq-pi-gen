@@ -35,9 +35,17 @@ if [ -e /home/pi/stem_club ]; then
 else
     git clone https://github.com/altmattr/stem_club.git
 fi
+if [ -e /home/pi/fastfetch-linux-armv7l.deb ]; then
+    true
+else
+    wget https://github.com/fastfetch-cli/fastfetch/releases/download/2.24.0/fastfetch-linux-armv7l.deb
+    dpkg -i fastfetch-linux-armv7l.deb
+    rm fastfetch-linux-armv7l.deb
+fi
 install -m 644 "/home/pi/stem_club/services/interface.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/prediction.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/sensors.service" "/lib/systemd/system/"
 systemctl enable interface.service
+mkdir /home/pi/.config/fastfetch
 chown -R pi:pi /home/pi/
 EOF

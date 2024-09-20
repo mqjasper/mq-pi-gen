@@ -7,8 +7,9 @@ install -m 777 files/serial-number "${ROOTFS_DIR}/usr/bin/"
 install -m 777 files/motd "${ROOTFS_DIR}/home/pi/"
 # Copy preconfigured NetworkManager access point config to directory
 install -m 600 files/*.nmconnection "${ROOTFS_DIR}/etc/NetworkManager/system-connections/"
-# Copy custom fastfetch config file into home directory
+# Copy custom fastfetch config file and G2G logo into home directory
 install -m 777 files/config.jsonc "${ROOTFS_DIR}/home/pi/.config/fastfetch/"
+install -m 777 files/logo.png "${ROOTFS_DIR}/home/pi/.config/fastfetch/"
 
 on_chroot << EOF
 update-rc.d rename-on-boot defaults

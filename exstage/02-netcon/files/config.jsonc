@@ -5,6 +5,10 @@
         "binaryPrefix": "jedec"
       }
     },
+    "logo":{
+      "source": "/home/pi/.config/fastfetch/logo.png",
+      "type": "chafa"
+    },
     "modules": [
       "title",
       "separator",

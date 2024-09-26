@@ -46,6 +46,6 @@ install -m 644 "/home/pi/stem_club/services/interface.service" "/lib/systemd/sys
 install -m 644 "/home/pi/stem_club/services/prediction.service" "/lib/systemd/system/"
 install -m 644 "/home/pi/stem_club/services/sensors.service" "/lib/systemd/system/"
 systemctl enable interface.service
-mkdir /home/pi/.config/fastfetch
+mkdir -p /home/pi/.config/fastfetch
 chown -R pi:pi /home/pi/
 EOF

@@ -35,8 +35,8 @@ if [ -e /home/pi/stem_club ]; then
 else
     git clone https://github.com/altmattr/stem_club.git
 fi
-if [ -e /home/pi/fastfetch-linux-armv7l.deb ]; then
-    true
+if [ "$(dpkg -l | awk '/fastfetch/ {print }' | wc -l)" -ge 1 ]; then
+    echo "Fastfetch already installed"
 else
     wget https://github.com/fastfetch-cli/fastfetch/releases/download/2.24.0/fastfetch-linux-armv7l.deb
     dpkg -i fastfetch-linux-armv7l.deb

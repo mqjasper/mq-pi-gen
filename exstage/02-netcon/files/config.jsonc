@@ -6,8 +6,8 @@
       }
     },
     "logo":{
-      "source": "/home/pi/.config/fastfetch/logo.png",
-      "type": "chafa"
+      "source": "/home/pi/.config/fastfetch/braille-logo.txt",
+      "type": "auto"
     },
     "modules": [
       "title",
@@ -19,7 +19,6 @@
       "packages",
       "shell",
       "cpu",
-      "gpu",
       "memory",
       "swap",
       "disk",

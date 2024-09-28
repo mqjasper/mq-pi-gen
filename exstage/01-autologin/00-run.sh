@@ -1,7 +1,4 @@
 #!/bin/bash -e
-install -m 777 files/autologin.sh "${ROOTFS_DIR}/home/pi/"
 on_chroot << EOF
-cd /home/pi
-./autologin.sh
-rm -rf /home/pi/autologin.sh
+SUDO_USER="${FIRST_USER_NAME}" raspi-config nonint do_boot_behaviour B4
 EOF

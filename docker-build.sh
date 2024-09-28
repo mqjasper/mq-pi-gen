@@ -14,6 +14,7 @@ whiptail --title "Docker build options" --menu "What would you like to do?" --no
 "Preserve" "Perform a build, but keep the container for incremental testing" \
 "Exit" "Exit the menu" 3>&2 2>&1 1>&3
 )
+
 case $OPT in
     "Clean")
         ./build-docker.sh

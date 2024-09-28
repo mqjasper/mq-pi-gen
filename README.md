@@ -1,6 +1,7 @@
 # Modified Usage
 
 For the first build after cloning (or if you delete the work folder), you must run the following ```sudo ./lite-builder.sh ``` from ```mq-pi-gen/``` in order to avoid crashing. If you encounter errors when running subsequent builds, or simply want a clean build, use ```sudo ./clean-build.sh ```. If you want to rebuild only the custom stage either using previous build content or from scratch, ```sudo ./exstage-clean.sh``` to clean only the exstage, and ```sudo ./exstage-build.sh``` if you don't want to rebuild the whole stage. Make sure that you look below for a list of dependencies to install before you can build an image. If you're using VS code, the various scripts to build an image can be initiated from the run and debug tag.
+All but one of the install scripts creates an image without a desktop GUI. If you would like a minimal installation of the Pi desktop, you can use the ```desktop-builder.sh``` script. 
 
 # pi-gen
 
@@ -18,7 +19,7 @@ always advise you use the latest OS for security reasons.
 On other Linux distributions it may be possible to use the Docker build described
 below.
 
-To install the required dependencies for `pi-gen` you should run:
+To install the required dependencies for `mq-pi-gen` you should run:
 
 ```bash
 apt-get install coreutils quilt parted qemu-user-static debootstrap zerofree zip \
@@ -35,14 +36,14 @@ Getting started is as simple as cloning this repository on your build machine. Y
 can do so with:
 
 ```bash
-git clone https://github.com/RPI-Distro/pi-gen.git
+git clone https://github.com/mqjasper/mq-pi-gen.git
 ```
 
 `--depth 1` can be added afer `git clone` to create a shallow clone, only containing
 the latest revision of the repository. Do not do this on your development machine.
 
 Also, be careful to clone the repository to a base path **NOT** containing spaces.
-This configuration is not supported by debootstrap and will lead to `pi-gen` not
+This configuration is not supported by debootstrap and will lead to `mq-pi-gen` not
 running.
 
 After cloning the repository, you can move to the next step and start configuring

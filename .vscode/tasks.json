@@ -15,6 +15,11 @@
             "type": "shell"
         },
         {
+            "label": "docker build",
+            "command": "./docker-build.sh",
+            "type": "shell"
+        },
+        {
             "label": "standard_and_upload",
             "command": "sudo ./new-lite-build-and-upload.sh"
         },

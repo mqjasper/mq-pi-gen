@@ -16,6 +16,12 @@
       {
         "type": "chrome",
         "request": "launch",
+        "name": "Docker Build (menu)",
+        "preLaunchTask": "docker build"
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
         "name": "Build & Upload",
         "preLaunchTask": "standard_and_upload"
       },

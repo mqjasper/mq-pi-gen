@@ -7,29 +7,56 @@
         {
             "label": "full clean build",
             "command": "sudo ./clean-build.sh",
-            "type": "shell"
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         },
         {
             "label": "standard build",
             "command": "sudo ./lite-builder.sh",
-            "type": "shell"
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "docker build",
             "command": "./docker-build.sh",
-            "type": "shell"
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         },
         {
             "label": "standard_and_upload",
-            "command": "sudo ./new-lite-build-and-upload.sh"
+            "command": "sudo ./new-lite-build-and-upload.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         },
         {
             "label": "exstage build",
-            "command": "sudo ./exstage-build.sh"
+            "command": "sudo ./exstage-build.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         },
         {
             "label": "exstage clean",
-            "command": "sudo ./exstage-clean.sh"
+            "command": "sudo ./exstage-clean.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         }
     ]
 }
